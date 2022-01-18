@@ -1,6 +1,6 @@
 import { Logger, Provider } from '@nestjs/common';
 import * as fs from 'fs';
-import KeycloakConnect from 'keycloak-connect';
+import KeycloakConnect, { KeycloakOptions } from 'keycloak-connect';
 import * as path from 'path';
 import {
   KEYCLOAK_CONNECT_OPTIONS,
@@ -41,9 +41,10 @@ export const loggerProvider: Provider = {
 
 export const keycloakProvider: Provider = {
   provide: KEYCLOAK_INSTANCE,
-  useFactory: (opts: KeycloakConnectOptions) => {
+  useFactory: (opts: KeycloakConnectOptions, kcOpts?: KeycloakOptions) => {
     const keycloakOpts: any = opts;
-    const keycloak: any = new KeycloakConnect({}, keycloakOpts);
+    const kcOptions: KeycloakOptions = kcOpts;
+    const keycloak: any = new KeycloakConnect(kcOptions, keycloakOpts);
 
     // Warn if using token validation none
     if (
