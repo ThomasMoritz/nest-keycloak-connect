@@ -21,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ferrerojosh/nest-keycloak-connect"
+    "url": "https://github.com/ThomasMoritz/nest-keycloak-connect"
   },
   "bugs": "https://github.com/ferrerojosh/nest-keycloak-connect/issues",
   "peerDependencies": {
